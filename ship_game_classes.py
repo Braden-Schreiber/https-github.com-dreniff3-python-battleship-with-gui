@@ -51,10 +51,24 @@ class Player:
         self._board = [[' '] * 10 for i in range(10)]
         self._grid = [[' '] * 10 for i in range(10)]
 
+    def add_ships(self, name):
+        """
+        Takes as a parameter the name of a ship. Instantiates a Ship object using the provided name and adds that ship
+        to the collection of the Player's ships.
+
+        :param name: The name of the ship to add.
+        """
+        self._ships[name] = Ship(name)
+
+    def get_ships(self):
+        return self._ships
+
+    def get_board(self):
+        """ Gets the Player's board. """
+        return self._board
+
     def get_grid(self):
-        """
-        Gets the Player's grid, where misses and hits are recorded.
-        """
+        """ Gets the Player's grid, where misses and hits are recorded. """
         return self._grid
 
 
@@ -95,9 +109,7 @@ class ShipGame:
         pass
 
     def print_board(self, player):
-        """
-        Prints the 10x10 grid showing the Player's hits and misses on their enemy's board.
-        """
+        """ Prints the 10x10 grid showing the Player's hits and misses on their enemy's board. """
         if player == "first":
             player_obj = self._player_1
         else:
