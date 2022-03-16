@@ -37,14 +37,25 @@ class Player:
         _turn (str): Either "first" or "second", designating which turn the Player can legally take.
         _ships (dict): The player's collection of Ship objects.
         _hits (list): The (x, y) positions of each hit the Player has made on their opponent's ships.
+        _misses (list): The torpedo misses recorded as (x, y) positions.
         _board (list): The player's 10x10 game board represented as a list of ten lists ten strings long.
+        _grid (list): The printable board of hits and misses.
     """
+
     def __init__(self, turn):
         """ The constructor of the Player class. Initializes all data members to their initial values. """
         self._turn = turn
         self._ships = {}
         self._hits = []
+        self._misses = []
         self._board = [[' '] * 10 for i in range(10)]
+        self._grid = [[' '] * 10 for i in range(10)]
+
+    def get_grid(self):
+        """
+        Gets the Player's grid, where misses and hits are recorded.
+        """
+        return self._grid
 
 
 class ShipGame:
@@ -52,6 +63,37 @@ class ShipGame:
 
     Attributes:
         _player_turn (str): The player whose turn it is.
+        _player_1 (Player): The Player object representing player_1.
+        _player_2 (Player): The Player object representing player_2.
+        _letters_to_numbers (dict): A collection of key-value pairs for translating ship and torpedo coordinates into
+            (x, y) positions on a player's board.
     """
+
     def __init__(self):
+        """
+        The constructor of the ShipGame class. Takes no parameters and initializes all data members to their initial
+        values.
+        """
         self._player_turn = "first"
+        self._player_1 = Player("first")
+        self._player_2 = Player("second")
+        self._letters_to_numbers = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7, 'I': 8, 'J': 9}
+
+    def print_board(self, player):
+        """
+        Prints the 10x10 grid showing the Player's hits and misses on their enemy's board.
+        """
+
+        if player == "first":
+            player_obj = self._player_1
+        else:
+            player_obj = self._player_2
+        grid = player_obj.get_grid()
+        print(" ", " ".join("123456789" + "10"))
+        for letter, row in zip("ABCDEFGHIJ", grid):
+            print(letter, " ".join(row))
+
+
+if __name__ == "__main__":
+    s = ShipGame()
+    s.print_board("first")
