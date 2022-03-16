@@ -34,8 +34,17 @@ class Player:
     """ Represents a player.
 
     Attributes:
+        _turn (str): Either "first" or "second", designating which turn the Player can legally take.
+        _ships (dict): The player's collection of Ship objects.
+        _hits (list): The (x, y) positions of each hit the Player has made on their opponent's ships.
+        _board (list): The player's 10x10 game board represented as a list of ten lists ten strings long.
     """
-    pass
+    def __init__(self, turn):
+        """ The constructor of the Player class. Initializes all data members to their initial values. """
+        self._turn = turn
+        self._ships = {}
+        self._hits = []
+        self._board = [[' '] * 10 for i in range(10)]
 
 
 class ShipGame:
