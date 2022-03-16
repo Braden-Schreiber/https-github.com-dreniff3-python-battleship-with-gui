@@ -12,7 +12,9 @@ class Ship:
         _status (str): If all of the ship's (x, y) coordinates have been hit by an enemy's torpedoes, the ship status
             is "sunk", otherwise it is "live".
     """
+
     def __init__(self, name):
+        """ The constructor of the Ship class. Sets all data members to their initial values. """
         self._name = name
         if name == 'carrier':
             self._length = 5
@@ -40,5 +42,7 @@ class ShipGame:
     """ Represents a game of Battleship.
 
     Attributes:
+        _player_turn (str): The player whose turn it is.
     """
-    pass
+    def __init__(self):
+        self._player_turn = "first"
