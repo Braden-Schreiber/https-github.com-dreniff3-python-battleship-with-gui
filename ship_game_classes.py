@@ -103,7 +103,7 @@ class ShipGame:
 
         :param player: The player placing the ship, either "first" or "second".
         :param ship: The ship being placed.
-        :param coordinates: The (x, y) coordinates of the closest square to 'A1' that the ship will occupy.
+        :param coordinates: The letter-and-number coordinates of the closest square to 'A1' that the ship will occupy.
         :param orientation: The ship's orientation, either "R" if the ship occupies squares in a row, or "C" if it
             occupies squares in a column.
         """
@@ -133,6 +133,11 @@ class ShipGame:
                 ship = player_obj.get_ships()['destroyer']
         else:
             return False
+
+        # translate coordinates into (x, y) position
+        letter = coordinates[0]
+        x = self._letters_to_numbers[letter]
+        y = int(coordinates[1:3]) - 1
 
     def print_board(self, player):
         """ Prints the 10x10 grid showing the Player's hits and misses on their enemy's board. """
