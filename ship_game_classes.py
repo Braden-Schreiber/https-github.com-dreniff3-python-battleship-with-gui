@@ -78,12 +78,26 @@ class ShipGame:
         self._player_1 = Player("first")
         self._player_2 = Player("second")
         self._letters_to_numbers = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7, 'I': 8, 'J': 9}
+        self._current_state = 'UNFINISHED'
+
+    def place_ship(self, player, ship, coordinates, orientation):
+        """
+        Places a ship on a player's grid at a designated starting-coordinate.
+        If a ship does not fit entirely on that player's grid, or if it would overlap any previously placed ships
+        on that player's grid, the ship is not added and the method returns False.
+
+        :param player: The player placing the ship, either "first" or "second".
+        :param ship: The ship being placed.
+        :param coordinates: The (x, y) coordinates of the closest square to 'A1' that the ship will occupy.
+        :param orientation: The ship's orientation, either "R" if the ship occupies squares in a row, or "C" if it
+            occupies squares in a column.
+        """
+        pass
 
     def print_board(self, player):
         """
         Prints the 10x10 grid showing the Player's hits and misses on their enemy's board.
         """
-
         if player == "first":
             player_obj = self._player_1
         else:
