@@ -1,1 +1,1 @@
-# python-battleship-with-gui
+# Battleship (with GUI) in Python
