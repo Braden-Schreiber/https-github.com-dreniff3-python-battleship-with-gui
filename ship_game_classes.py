@@ -29,6 +29,14 @@ class Ship:
         self._location = []
         self._status = "live"
 
+    def get_name(self):
+        """ Gets the name of the ship. """
+        return self._name
+
+    def get_length(self):
+        """ Gets the length of the Ship. """
+        return self._length
+
 
 class Player:
     """ Represents a player.
@@ -59,6 +67,16 @@ class Player:
         :param name: The name of the ship to add.
         """
         self._ships[name] = Ship(name)
+
+    def remove_ship(self, name):
+        """
+        Removes a ship specified by the length parameter from the Player's collection of ships.
+
+        :param name: The string name of the ship to remove.
+        """
+        if name in self._ships:
+            del self._ships[name]
+            return
 
     def get_ships(self):
         """ Gets the Player's collection of ships. """
@@ -116,21 +134,10 @@ class ShipGame:
         ships = player_obj.get_ships()
 
         if ship not in ships:
-            if ship == 'carrier':
-                player_obj.add_ships('carrier')
-                ship = player_obj.get_ships()['carrier']
-            if ship == 'battle-ship':
-                player_obj.add_ships('battle-ship')
-                ship = player_obj.get_ships()['battle-ship']
-            if ship == 'cruiser':
-                player_obj.add_ships('cruiser')
-                ship = player_obj.get_ships()['cruiser']
-            if ship == 'submarine':
-                player_obj.add_ships('submarine')
-                ship = player_obj.get_ships()['submarine']
-            if ship == 'destroyer':
-                player_obj.add_ships('destroyer')
-                ship = player_obj.get_ships()['destroyer']
+            player_obj.add_ships(ship)
+            ship_obj = player_obj.get_ships()[ship]
+            ship_name = ship_obj.get_name()
+            ship_length = ship_obj.get_length()
         else:
             return False
 
@@ -138,6 +145,46 @@ class ShipGame:
         letter = coordinates[0]
         x = self._letters_to_numbers[letter]
         y = int(coordinates[1:3]) - 1
+        # if the ship does not fit on board
+        if x < 0 or y < 0 or x >= 10 or y >= 10:
+            player_obj.remove_ship(ship_name)
+            return False
+        # if the ship would overlap with another ship
+        if board[x][y] == 'X':
+            player_obj.remove_ship(ship_name)
+            return False
+        board[x][y] = 'X'
+        ship_obj.add_location((x, y))
+        # place the rest of the ship on the board according to orientation provided
+        # if the squares of the ship occupy the same row
+        if orientation == 'R':
+            for i in range(1, ship_length):
+                temp_y = y + i
+                if x < 0 or temp_y < 0 or x >= 10 or temp_y >= 10:
+                    player_obj.remove_ship(ship_name)
+                    return False
+                # if the ship would overlap with another ship
+                elif board[x][temp_y] == 'X':
+                    player_obj.remove_ship(ship_name)
+                    return False
+                else:
+                    board[x][temp_y] = 'X'
+                    ship_obj.add_location((x, temp_y))
+            return True
+        elif orientation == 'C':
+            for i in range(1, ship_length):
+                temp_x = x + i
+                if temp_x < 0 or y < 0 or temp_x >= 10 or y >= 10:
+                    player_obj.remove_ship(ship_name)
+                    return False
+                # if the ship would overlap with another ship
+                elif board[temp_x][y] == 'X':
+                    player_obj.remove_ship(ship_name)
+                    return False
+                else:
+                    board[temp_x][y] = 'X'
+                    ship_obj.add_location((temp_x, y))
+            return True
 
     def print_board(self, player):
         """ Prints the 10x10 grid showing the Player's hits and misses on their enemy's board. """
