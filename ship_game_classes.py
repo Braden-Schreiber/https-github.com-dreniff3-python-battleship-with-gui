@@ -61,6 +61,7 @@ class Player:
         self._ships[name] = Ship(name)
 
     def get_ships(self):
+        """ Gets the Player's collection of ships. """
         return self._ships
 
     def get_board(self):
@@ -106,7 +107,32 @@ class ShipGame:
         :param orientation: The ship's orientation, either "R" if the ship occupies squares in a row, or "C" if it
             occupies squares in a column.
         """
-        pass
+        if player == "first":
+            player_obj = self._player_1
+        else:
+            player_obj = self._player_2
+
+        board = player_obj.get_board()
+        ships = player_obj.get_ships()
+
+        if ship not in ships:
+            if ship == 'carrier':
+                player_obj.add_ships('carrier')
+                ship = player_obj.get_ships()['carrier']
+            if ship == 'battle-ship':
+                player_obj.add_ships('battle-ship')
+                ship = player_obj.get_ships()['battle-ship']
+            if ship == 'cruiser':
+                player_obj.add_ships('cruiser')
+                ship = player_obj.get_ships()['cruiser']
+            if ship == 'submarine':
+                player_obj.add_ships('submarine')
+                ship = player_obj.get_ships()['submarine']
+            if ship == 'destroyer':
+                player_obj.add_ships('destroyer')
+                ship = player_obj.get_ships()['destroyer']
+        else:
+            return False
 
     def print_board(self, player):
         """ Prints the 10x10 grid showing the Player's hits and misses on their enemy's board. """
