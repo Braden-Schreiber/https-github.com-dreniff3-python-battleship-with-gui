@@ -37,6 +37,19 @@ class Ship:
         """ Gets the length of the Ship. """
         return self._length
 
+    def add_location(self, position):
+        """
+        Takes as a parameter the (x, y) position the ship occupies on the game board and adds that tuple to the list
+        of ship positions.
+
+        :param position: The (x, y) position the ship occupies on the game board.
+        """
+        self._location.append(position)
+
+    def get_location(self):
+
+        return self._location
+
 
 class Player:
     """ Represents a player.
@@ -186,6 +199,10 @@ class ShipGame:
                     ship_obj.add_location((temp_x, y))
             return True
 
+    def get_current_state(self):
+        """ Gets the current state of the game. """
+        return self._current_state
+
     def print_board(self, player):
         """ Prints the 10x10 grid showing the Player's hits and misses on their enemy's board. """
         if player == "first":
@@ -201,3 +218,7 @@ class ShipGame:
 if __name__ == "__main__":
     s = ShipGame()
     s.print_board("first")
+    print(s.get_current_state())
+    s.place_ship("first", "carrier", "A1", "R")
+    print(s._player_1.get_ships())
+
