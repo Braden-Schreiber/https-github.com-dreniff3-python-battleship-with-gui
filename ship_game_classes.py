@@ -137,6 +137,7 @@ class ShipGame:
         :param coordinates: The letter-and-number coordinates of the closest square to 'A1' that the ship will occupy.
         :param orientation: The ship's orientation, either "R" if the ship occupies squares in a row, or "C" if it
             occupies squares in a column.
+        :returns Boolean: True if the ship can be placed on the board, False otherwise.
         """
         if player == "first":
             player_obj = self._player_1
@@ -199,19 +200,31 @@ class ShipGame:
                     ship_obj.add_location((temp_x, y))
             return True
 
+    def fire_torpedo(self, player, target_coordinates):
+        """
+        Method for firing a torpedo at a specified target square. If it's not that player's turn, or if the game
+        has already been won, it returns False. Otherwise, it records the move, updates whose turn it is, updates
+        the current state (if this turn sank the opponent's final ship), and returns True.
+
+        :param player: The player firing the torpedo, either 'first' or 'second'.
+        :param target_coordinates: The coordinates of the target square, e.g. 'B7'.
+        :returns Boolean: True if it is that player's turn and the game is not over, False otherwise.
+        """
+        pass
+
     def get_current_state(self):
         """ Gets the current state of the game. """
         return self._current_state
 
     def print_board(self, player):
-        """ Prints the 10x10 grid showing the Player's hits and misses on their enemy's board. """
+        """ Prints the 10x10 grid showing the Player's ship placements. """
         if player == "first":
             player_obj = self._player_1
         else:
             player_obj = self._player_2
-        grid = player_obj.get_grid()
+        board = player_obj.get_board()
         print(" ", " ".join("123456789" + "10"))
-        for letter, row in zip("ABCDEFGHIJ", grid):
+        for letter, row in zip("ABCDEFGHIJ", board):
             print(letter, " ".join(row))
 
 
@@ -221,4 +234,5 @@ if __name__ == "__main__":
     print(s.get_current_state())
     s.place_ship("first", "carrier", "A1", "R")
     print(s._player_1.get_ships())
+    s.print_board("first")
 
