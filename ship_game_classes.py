@@ -37,6 +37,13 @@ class Ship:
         """ Gets the length of the Ship. """
         return self._length
 
+    def change_length(self, length):
+        """
+        Changes the value of the length data member of the Ship.
+        :param length: The amount to change the length by.
+        """
+        self._length += length
+
     def add_location(self, position):
         """
         Takes as a parameter the (x, y) position the ship occupies on the game board and adds that tuple to the list
@@ -47,8 +54,19 @@ class Ship:
         self._location.append(position)
 
     def get_location(self):
-
+        """ Gets the list of (x, y) positions the Ship object occupies on the player's board. """
         return self._location
+
+    def change_status(self, status):
+        """
+        Changes the status of the ship to the string provided.
+        :param status: A string, what to change the ship's status to.
+        """
+        self._status = status
+
+    def get_status(self):
+        """ Gets the Ship object's current status. """
+        return self._status
 
 
 class Player:
@@ -247,6 +265,7 @@ class ShipGame:
             player_obj = self._player_2
             opponent_obj = self._player_1
 
+        print("torpedo firing!")
         letter = target_coordinates[0]
         x = self._letters_to_numbers[letter]
         # this slice allows for '10'
@@ -257,8 +276,35 @@ class ShipGame:
         if opponent_board[x][y] == 'X':
             if (x, y) not in player_obj.get_hits():
                 player_obj.add_hits((x, y))
+                print("hit!")
         else:
             player_obj.add_misses((x, y))
+            print("miss!")
+
+        opponent_ships = opponent_obj.get_ships().values()
+        for ship in opponent_ships:
+            for position in ship.get_location():
+                if position in player_obj.get_hits():
+                    ship.change_length(-1)
+            if ship.get_length() <= 0:
+                ship.change_status("sunk")
+
+            if ship.get_status() != "sunk":
+                if player_obj == self._player_1:
+                    self._player_turn = "second"
+                    return True
+                else:
+                    self._player_turn = "first"
+                    return True
+            else:
+                # a player wins and the game ends when all of a player's ships are "sunk"
+                if all(ship.get_status() == "sunk" for ship in opponent_ships):
+                    if player_obj == self._player_1:
+                        self._current_state = 'FIRST_WON'
+                        return True
+                    else:
+                        self._current_state = 'SECOND_WON'
+                        return True
 
     def get_current_state(self):
         """ Gets the current state of the game. """
@@ -280,7 +326,12 @@ if __name__ == "__main__":
     s = ShipGame()
     s.print_board("first")
     print(s.get_current_state())
-    s.place_ship("first", "carrier", "A1", "R")
+    s.place_ship("first", "destroyer", "A1", "R")
     print(s._player_1.get_ships())
     s.print_board("first")
-
+    s._player_turn = "second"
+    s.fire_torpedo("second", "A1")
+    print(s._player_2.get_hits())
+    s._player_turn = "second"
+    s.fire_torpedo("second", "A2")
+    print(s.get_current_state())
