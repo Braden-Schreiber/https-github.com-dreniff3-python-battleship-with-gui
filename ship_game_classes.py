@@ -210,7 +210,13 @@ class ShipGame:
         :param target_coordinates: The coordinates of the target square, e.g. 'B7'.
         :returns Boolean: True if it is that player's turn and the game is not over, False otherwise.
         """
-        pass
+        # if the game has already been won
+        if self._current_state != 'UNFINISHED':
+            return False
+
+        # if it's not this player's turn
+        if player != self._player_turn:
+            return False
 
     def get_current_state(self):
         """ Gets the current state of the game. """
