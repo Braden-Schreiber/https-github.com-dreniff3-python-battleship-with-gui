@@ -103,6 +103,28 @@ class Player:
         """ Gets the Player's grid, where misses and hits are recorded. """
         return self._grid
 
+    def add_hits(self, position):
+        """
+        Adds a hit to the list of hits.
+        :param position: A tuple, the (x, y) position where the hit was made on the enemy's board.
+        """
+        self._hits.append(position)
+
+    def get_hits(self):
+        """ Gets the list of hits. """
+        return self._hits
+
+    def add_misses(self, position):
+        """
+        Adds a miss to the list of misses.
+        :param position: A tuple, the (x, y) position where the torpedo missed on the enemy's board.
+        """
+        self._misses.append(position)
+
+    def get_misses(self):
+        """ Gets the list of misses. """
+        return self._misses
+
 
 class ShipGame:
     """ Represents a game of Battleship.
@@ -217,6 +239,26 @@ class ShipGame:
         # if it's not this player's turn
         if player != self._player_turn:
             return False
+
+        if player == "first":
+            player_obj = self._player_1
+            opponent_obj = self._player_2
+        else:
+            player_obj = self._player_2
+            opponent_obj = self._player_1
+
+        letter = target_coordinates[0]
+        x = self._letters_to_numbers[letter]
+        # this slice allows for '10'
+        y = int(target_coordinates[1:3]) - 1
+        opponent_board = opponent_obj.get_board()
+        if x < 0 or y < 0 or x >= 10 or y >= 10:
+            return False
+        if opponent_board[x][y] == 'X':
+            if (x, y) not in player_obj.get_hits():
+                player_obj.add_hits((x, y))
+        else:
+            player_obj.add_misses((x, y))
 
     def get_current_state(self):
         """ Gets the current state of the game. """
