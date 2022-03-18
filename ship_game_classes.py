@@ -320,18 +320,3 @@ class ShipGame:
         print(" ", " ".join("123456789" + "10"))
         for letter, row in zip("ABCDEFGHIJ", board):
             print(letter, " ".join(row))
-
-
-if __name__ == "__main__":
-    s = ShipGame()
-    s.print_board("first")
-    print(s.get_current_state())
-    s.place_ship("first", "destroyer", "A1", "R")
-    print(s._player_1.get_ships())
-    s.print_board("first")
-    s._player_turn = "second"
-    s.fire_torpedo("second", "A1")
-    print(s._player_2.get_hits())
-    s._player_turn = "second"
-    s.fire_torpedo("second", "A2")
-    print(s.get_current_state())
