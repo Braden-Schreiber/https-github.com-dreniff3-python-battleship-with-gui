@@ -104,3 +104,22 @@ class TestShipGame(unittest.TestCase):
         """ Test that the game starts unfinished. """
         s = ShipGame()
         self.assertEqual(s.get_current_state(), "UNFINISHED")
+
+    def test_player_1_win(self):
+        """ Test that player 1 wins when all player 2 ships are sunk. """
+        s = ShipGame()
+        s.place_ship("second", 'destroyer', 'F5', 'R')
+        s.fire_torpedo("first", 'F5')
+        s._player_turn = "first"
+        s.fire_torpedo("first", 'F6')
+        self.assertEqual(s.get_current_state(), 'FIRST_WON')
+
+    def test_player_2_win(self):
+        """ Test that player 2 wins when all player 1 ships are sunk. """
+        s = ShipGame()
+        s.place_ship("first", 'destroyer', 'F5', 'R')
+        s._player_turn = "second"
+        s.fire_torpedo("second", 'F5')
+        s._player_turn = "second"
+        s.fire_torpedo("second", 'F6')
+        self.assertEqual(s.get_current_state(), 'SECOND_WON')
