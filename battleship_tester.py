@@ -59,3 +59,24 @@ class TestShipGame(unittest.TestCase):
         s.place_ship("second", 'destroyer', 'E5', 'C')
         self.assertEqual(s.get_num_ships_remaining("first"), 5)
         self.assertEqual(s.get_num_ships_remaining("second"), 5)
+
+    def test_player_turn_1(self):
+        """ Test that player 1 takes the first turn. """
+        s = ShipGame()
+        self.assertEqual(s.fire_torpedo("second", 'F5'), False)
+
+    def test_player_turn_2(self):
+        """ Test that player 1 can take the first turn. """
+        s = ShipGame()
+        s.place_ship("second", 'destroyer', 'F5', 'R')
+        self.assertEqual(s.fire_torpedo("first", 'F5'), True)
+
+    def test_take_turns(self):
+        """ Test that turn order changes as players make legal moves. """
+        s = ShipGame()
+        s.place_ship("first", 'destroyer', 'F8', 'R')
+        s.place_ship("second", 'destroyer', 'C5', 'C')
+        s.fire_torpedo("first", 'I5')
+        self.assertEqual(s._player_turn, "second")
+        s.fire_torpedo("second", 'A1')
+        self.assertEqual(s._player_turn, "first")
