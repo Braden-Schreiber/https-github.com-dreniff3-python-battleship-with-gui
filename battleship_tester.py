@@ -34,7 +34,7 @@ class TestShipGame(unittest.TestCase):
         s.place_ship("first", 'battle-ship', 'B2', 'C')
         self.assertEqual(s.get_num_ships_remaining("first"), 1)
 
-    def test_place_ship_all(self):
+    def test_place_ship_all_1(self):
         """ Test that a player can place all five ships on the board. """
         s = ShipGame()
         s.place_ship("first", 'carrier', 'A1', 'R')
@@ -43,3 +43,19 @@ class TestShipGame(unittest.TestCase):
         s.place_ship("first", 'submarine', 'D1', 'C')
         s.place_ship("first", 'destroyer', 'E5', 'C')
         self.assertEqual(s.get_num_ships_remaining("first"), 5)
+
+    def test_place_ship_all_2(self):
+        """ Test that both players can place all five ships on their respective boards. """
+        s = ShipGame()
+        s.place_ship("first", 'carrier', 'A1', 'R')
+        s.place_ship("first", 'battle-ship', 'B1', 'R')
+        s.place_ship("first", 'cruiser', 'C3', 'R')
+        s.place_ship("first", 'submarine', 'D1', 'C')
+        s.place_ship("first", 'destroyer', 'E5', 'C')
+        s.place_ship("second", 'carrier', 'A1', 'R')
+        s.place_ship("second", 'battle-ship', 'B1', 'R')
+        s.place_ship("second", 'cruiser', 'C3', 'R')
+        s.place_ship("second", 'submarine', 'D1', 'C')
+        s.place_ship("second", 'destroyer', 'E5', 'C')
+        self.assertEqual(s.get_num_ships_remaining("first"), 5)
+        self.assertEqual(s.get_num_ships_remaining("second"), 5)
