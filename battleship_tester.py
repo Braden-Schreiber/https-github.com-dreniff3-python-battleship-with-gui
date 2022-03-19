@@ -90,3 +90,12 @@ class TestShipGame(unittest.TestCase):
         s.fire_torpedo("second", 'B1')
         self.assertEqual(s._player_1.get_misses(), [(5, 8)])
         self.assertEqual(s._player_2.get_hits(), [(1, 0)])
+
+    def test_sink_ship(self):
+        """ Test if a ship has sunk when all its positions have been hit by torpedoes. """
+        s = ShipGame()
+        s.place_ship("second", 'destroyer', 'F5', 'R')
+        s.fire_torpedo("first", 'F5')
+        s._player_turn = "first"
+        s.fire_torpedo("first", 'F6')
+        self.assertEqual(s._player_2.get_ships()['destroyer'].get_status(), "sunk")
