@@ -123,3 +123,7 @@ class TestShipGame(unittest.TestCase):
         s._player_turn = "second"
         s.fire_torpedo("second", 'F6')
         self.assertEqual(s.get_current_state(), 'SECOND_WON')
+
+
+if __name__ == "__main__":
+    unittest.main(exit=False)
