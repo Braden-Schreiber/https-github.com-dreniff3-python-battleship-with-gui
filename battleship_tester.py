@@ -99,3 +99,8 @@ class TestShipGame(unittest.TestCase):
         s._player_turn = "first"
         s.fire_torpedo("first", 'F6')
         self.assertEqual(s._player_2.get_ships()['destroyer'].get_status(), "sunk")
+
+    def test_current_state(self):
+        """ Test that the game starts unfinished. """
+        s = ShipGame()
+        self.assertEqual(s.get_current_state(), "UNFINISHED")
