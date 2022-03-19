@@ -310,6 +310,26 @@ class ShipGame:
         """ Gets the current state of the game. """
         return self._current_state
 
+    def get_num_ships_remaining(self, player):
+        """
+        Returns how many ships the specified player has left.
+
+        :param player: The player, either 'first' or 'second'.
+        :returns count: The number of ships the specified player has left.
+        """
+        if player == "first":
+            player_obj = self._player_1
+        else:
+            player_obj = self._player_2
+
+        count = 0
+        for ship in player_obj.get_ships().values():
+            if ship.get_status() != "sunk":
+                count += 1
+            else:
+                continue
+        return count
+
     def print_board(self, player):
         """ Prints the 10x10 grid showing the Player's ship placements. """
         if player == "first":
