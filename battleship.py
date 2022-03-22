@@ -64,7 +64,7 @@ submit.grid(row=2, column=3)
 
 def show_num_ships_remaining(player):
     num_ships = s.get_num_ships_remaining(player)
-    message_label = Label(frame4, text="{} ships left".format(num_ships))
+    message_label = Label(frame4, text="{} ships".format(num_ships))
     message_label.grid(row=1, column=1)
 
 
@@ -485,5 +485,316 @@ label_9 = Label(frame2, text="9")
 label_9.grid(row=0, column=9)
 label_10 = Label(frame2, text="10")
 label_10.grid(row=0, column=10)
+
+# row 1
+p2_A1 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "A1", p2_A1))
+p2_A1.grid(row=1, column=1)
+p2_A2 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "A2", p2_A2))
+p2_A2.grid(row=1, column=2)
+p2_A3 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "A3", p2_A3))
+p2_A3.grid(row=1, column=3)
+p2_A4 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "A4", p2_A4))
+p2_A4.grid(row=1, column=4)
+p2_A5 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "A5", p2_A5))
+p2_A5.grid(row=1, column=5)
+p2_A6 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "A6", p2_A6))
+p2_A6.grid(row=1, column=6)
+p2_A7 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "A7", p2_A7))
+p2_A7.grid(row=1, column=7)
+p2_A8 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "A8", p2_A8))
+p2_A8.grid(row=1, column=8)
+p2_A9 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "A9", p2_A9))
+p2_A9.grid(row=1, column=9)
+p2_A10 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+                command=lambda: s.fire_torpedo("second", "A10", p2_A10))
+p2_A10.grid(row=1, column=10)
+# row 2
+p2_B1 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "B1", p2_B1))
+p2_B1.grid(row=2, column=1)
+p2_B2 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "B2", p2_B2))
+p2_B2.grid(row=2, column=2)
+p2_B3 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "B3", p2_B3))
+p2_B3.grid(row=2, column=3)
+p2_B4 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "B4", p2_B4))
+p2_B4.grid(row=2, column=4)
+p2_B5 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "B5", p2_B5))
+p2_B5.grid(row=2, column=5)
+p2_B6 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "B6", p2_B6))
+p2_B6.grid(row=2, column=6)
+p2_B7 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "B7", p2_B7))
+p2_B7.grid(row=2, column=7)
+p2_B8 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "B8", p2_B8))
+p2_B8.grid(row=2, column=8)
+p2_B9 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "B9", p2_B9))
+p2_B9.grid(row=2, column=9)
+p2_B10 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+                command=lambda: s.fire_torpedo("second", "B10", p2_B10))
+p2_B10.grid(row=2, column=10)
+# row 3
+p2_C1 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "C1", p2_C1))
+p2_C1.grid(row=3, column=1)
+p2_C2 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "C2", p2_C2))
+p2_C2.grid(row=3, column=2)
+p2_C3 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "C3", p2_C3))
+p2_C3.grid(row=3, column=3)
+p2_C4 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "C4", p2_C4))
+p2_C4.grid(row=3, column=4)
+p2_C5 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "C5", p2_C5))
+p2_C5.grid(row=3, column=5)
+p2_C6 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "C6", p2_C6))
+p2_C6.grid(row=3, column=6)
+p2_C7 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "C7", p2_C7))
+p2_C7.grid(row=3, column=7)
+p2_C8 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "C8", p2_C8))
+p2_C8.grid(row=3, column=8)
+p2_C9 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "C9", p2_C9))
+p2_C9.grid(row=3, column=9)
+p2_C10 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+                command=lambda: s.fire_torpedo("second", "C10", p2_C10))
+p2_C10.grid(row=3, column=10)
+# row 4
+p2_D1 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "D1", p2_D1))
+p2_D1.grid(row=4, column=1)
+p2_D2 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "D2", p2_D2))
+p2_D2.grid(row=4, column=2)
+p2_D3 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "D3", p2_D3))
+p2_D3.grid(row=4, column=3)
+p2_D4 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "D4", p2_D4))
+p2_D4.grid(row=4, column=4)
+p2_D5 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "D5", p2_D5))
+p2_D5.grid(row=4, column=5)
+p2_D6 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "D6", p2_D6))
+p2_D6.grid(row=4, column=6)
+p2_D7 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "D7", p2_D7))
+p2_D7.grid(row=4, column=7)
+p2_D8 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "D8", p2_D8))
+p2_D8.grid(row=4, column=8)
+p2_D9 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "D9", p2_D9))
+p2_D9.grid(row=4, column=9)
+p2_D10 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+                command=lambda: s.fire_torpedo("second", "D10", p2_D10))
+p2_D10.grid(row=4, column=10)
+# row 5
+p2_E1 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "E1", p2_E1))
+p2_E1.grid(row=5, column=1)
+p2_E2 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "E2", p2_E2))
+p2_E2.grid(row=5, column=2)
+p2_E3 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "E3", p2_E3))
+p2_E3.grid(row=5, column=3)
+p2_E4 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "E4", p2_E4))
+p2_E4.grid(row=5, column=4)
+p2_E5 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "E5", p2_E5))
+p2_E5.grid(row=5, column=5)
+p2_E6 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "E6", p2_E6))
+p2_E6.grid(row=5, column=6)
+p2_E7 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "E7", p2_E7))
+p2_E7.grid(row=5, column=7)
+p2_E8 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "E8", p2_E8))
+p2_E8.grid(row=5, column=8)
+p2_E9 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "E9", p2_E9))
+p2_E9.grid(row=5, column=9)
+p2_E10 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+                command=lambda: s.fire_torpedo("second", "E10", p2_E10))
+p2_E10.grid(row=5, column=10)
+# row 6
+p2_F1 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "F1", p2_F1))
+p2_F1.grid(row=6, column=1)
+p2_F2 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "F2", p2_F2))
+p2_F2.grid(row=6, column=2)
+p2_F3 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "F3", p2_F3))
+p2_F3.grid(row=6, column=3)
+p2_F4 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "F4", p2_F4))
+p2_F4.grid(row=6, column=4)
+p2_F5 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "F5", p2_F5))
+p2_F5.grid(row=6, column=5)
+p2_F6 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "F6", p2_F6))
+p2_F6.grid(row=6, column=6)
+p2_F7 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "F7", p2_F7))
+p2_F7.grid(row=6, column=7)
+p2_F8 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "F8", p2_F8))
+p2_F8.grid(row=6, column=8)
+p2_F9 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "F9", p2_F9))
+p2_F9.grid(row=6, column=9)
+p2_F10 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+                command=lambda: s.fire_torpedo("second", "F10", p2_F10))
+p2_F10.grid(row=6, column=10)
+# row 7
+p2_G1 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "G1", p2_G1))
+p2_G1.grid(row=7, column=1)
+p2_G2 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "G2", p2_G2))
+p2_G2.grid(row=7, column=2)
+p2_G3 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "G3", p2_G3))
+p2_G3.grid(row=7, column=3)
+p2_G4 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "G4", p2_G4))
+p2_G4.grid(row=7, column=4)
+p2_G5 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "G5", p2_G5))
+p2_G5.grid(row=7, column=5)
+p2_G6 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "G6", p2_G6))
+p2_G6.grid(row=7, column=6)
+p2_G7 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "G7", p2_G7))
+p2_G7.grid(row=7, column=7)
+p2_G8 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "G8", p2_G8))
+p2_G8.grid(row=7, column=8)
+p2_G9 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "G9", p2_G9))
+p2_G9.grid(row=7, column=9)
+p2_G10 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+                command=lambda: s.fire_torpedo("second", "G10", p2_G10))
+p2_G10.grid(row=7, column=10)
+# row 8
+p2_H1 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "H1", p2_H1))
+p2_H1.grid(row=8, column=1)
+p2_H2 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "H2", p2_H2))
+p2_H2.grid(row=8, column=2)
+p2_H3 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "H3", p2_H3))
+p2_H3.grid(row=8, column=3)
+p2_H4 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "H4", p2_H4))
+p2_H4.grid(row=8, column=4)
+p2_H5 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "H5", p2_H5))
+p2_H5.grid(row=8, column=5)
+p2_H6 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "H6", p2_H6))
+p2_H6.grid(row=8, column=6)
+p2_H7 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "H7", p2_H7))
+p2_H7.grid(row=8, column=7)
+p2_H8 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "H8", p2_H8))
+p2_H8.grid(row=8, column=8)
+p2_H9 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "H9", p2_H9))
+p2_H9.grid(row=8, column=9)
+p2_H0 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "H10", p2_H0))
+p2_H0.grid(row=8, column=10)
+# row 9
+p2_I1 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "I1", p2_I1))
+p2_I1.grid(row=9, column=1)
+p2_I2 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "I2", p2_I2))
+p2_I2.grid(row=9, column=2)
+p2_I3 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "I3", p2_I3))
+p2_I3.grid(row=9, column=3)
+p2_I4 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "I4", p2_I4))
+p2_I4.grid(row=9, column=4)
+p2_I5 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "I5", p2_I5))
+p2_I5.grid(row=9, column=5)
+p2_I6 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "I6", p2_I6))
+p2_I6.grid(row=9, column=6)
+p2_I7 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "I7", p2_I7))
+p2_I7.grid(row=9, column=7)
+p2_I8 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "I8", p2_I8))
+p2_I8.grid(row=9, column=8)
+p2_I9 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "I9", p2_I9))
+p2_I9.grid(row=9, column=9)
+p2_I10 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+                command=lambda: s.fire_torpedo("second", "I10", p2_I10))
+p2_I10.grid(row=9, column=10)
+# row 10
+p2_J1 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "J1", p2_J1))
+p2_J1.grid(row=10, column=1)
+p2_J2 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "J2", p2_J2))
+p2_J2.grid(row=10, column=2)
+p2_J3 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "J3", p2_J3))
+p2_J3.grid(row=10, column=3)
+p2_J4 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "J4", p2_J4))
+p2_J4.grid(row=10, column=4)
+p2_J5 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "J5", p2_J5))
+p2_J5.grid(row=10, column=5)
+p2_J6 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "J6", p2_J6))
+p2_J6.grid(row=10, column=6)
+p2_J7 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "J7", p2_J7))
+p2_J7.grid(row=10, column=7)
+p2_J8 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "J8", p2_J8))
+p2_J8.grid(row=10, column=8)
+p2_J9 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "J9", p2_J9))
+p2_J9.grid(row=10, column=9)
+p2_J0 = Button(frame2, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("second", "J10", p2_J0))
+p2_J0.grid(row=10, column=10)
 
 root.mainloop()

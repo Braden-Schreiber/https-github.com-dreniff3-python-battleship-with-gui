@@ -266,7 +266,6 @@ class ShipGame:
             player_obj = self._player_2
             opponent_obj = self._player_1
 
-        print("torpedo firing!")
         letter = target_coordinates[0]
         x = self._letters_to_numbers[letter]
         # this slice allows for '10'
