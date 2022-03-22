@@ -34,6 +34,16 @@ clicked.set("carrier        ")
 options = OptionMenu(frame3, clicked, "carrier        ", "battle-ship", "cruiser       ", "submarine", "destroyer   ")
 options.grid(row=1, column=0)
 
+# choose position
+pos = Entry(frame3, width=5)
+pos.grid(row=1, column=1)
+
+# choose orientation
+orientation = StringVar()
+orientation.set("R")
+Radiobutton(frame3, text="Row", variable=orientation, value='R').grid(row=1, column=2)
+Radiobutton(frame3, text="Col", variable=orientation, value='C').grid(row=1, column=3)
+
 # game board buttons
 
 # Player1 board
