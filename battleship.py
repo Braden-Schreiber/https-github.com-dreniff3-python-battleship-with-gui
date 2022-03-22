@@ -6,3 +6,5 @@ s = ShipGame()
 root = Tk()
 root.geometry("750x550")
 root.title('Battleship')
+
+root.mainloop()
