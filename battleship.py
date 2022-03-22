@@ -70,6 +70,14 @@ label_9.grid(row=0, column=9)
 label_10 = Label(frame1, text="10")
 label_10.grid(row=0, column=10)
 
+# row 1
+p1_A1 = Button(frame1, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("first", "A1", p1_A1))
+p1_A1.grid(row=1, column=1)
+p1_A2 = Button(frame1, text=" ", font=("Helvetica", 10), height=1, width=2, bg="SystemButtonFace",
+               command=lambda: s.fire_torpedo("first", "A2", p1_A2))
+p1_A2.grid(row=1, column=2)
+
 # Player2 board
 # grid coordinates - alphabet
 a_label = Label(frame2, text="A")
