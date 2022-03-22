@@ -27,6 +27,13 @@ player.set('first')
 Radiobutton(frame3, text="Player1", variable=player, value='first').grid(row=0, column=0)
 Radiobutton(frame3, text="Player2", variable=player, value='second').grid(row=0, column=1)
 
+# drop menu for ships
+clicked = StringVar()
+clicked.set("carrier        ")
+
+options = OptionMenu(frame3, clicked, "carrier        ", "battle-ship", "cruiser       ", "submarine", "destroyer   ")
+options.grid(row=1, column=0)
+
 # game board buttons
 
 # Player1 board
