@@ -44,6 +44,23 @@ orientation.set("R")
 Radiobutton(frame3, text="Row", variable=orientation, value='R').grid(row=1, column=2)
 Radiobutton(frame3, text="Col", variable=orientation, value='C').grid(row=1, column=3)
 
+
+def submit_click(player, ship, pos, orientation):
+    s.place_ship(player, ship, pos.get(), orientation)
+    # if player == "first":
+    #     print(s._player_1.get_ships())
+    # else:
+    #     print(s._player_2.get_ships())
+    pos.delete(0, END)
+
+
+emptyLabel = Label(frame3, text=" ")
+emptyLabel.grid(row=2, column=0, columnspan=2)
+# button for finalizing placing ship
+submit = Button(frame3, text="Place the ship",
+                command=lambda: submit_click(player.get(), clicked.get().strip(), pos, orientation.get()))
+submit.grid(row=2, column=3)
+
 # game board buttons
 
 # Player1 board

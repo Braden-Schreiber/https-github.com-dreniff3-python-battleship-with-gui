@@ -248,6 +248,7 @@ class ShipGame:
 
         :param player: The player firing the torpedo, either 'first' or 'second'.
         :param target_coordinates: The coordinates of the target square, e.g. 'B7'.
+        :param button: The button associated with the target_coordinates to change.
         :returns Boolean: True if it is that player's turn and the game is not over, False otherwise.
         """
         # if the game has already been won
