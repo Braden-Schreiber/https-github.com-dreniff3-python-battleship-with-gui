@@ -61,6 +61,23 @@ submit = Button(frame3, text="Place the ship",
                 command=lambda: submit_click(player.get(), clicked.get().strip(), pos, orientation.get()))
 submit.grid(row=2, column=3)
 
+
+def show_num_ships_remaining(player):
+    num_ships = s.get_num_ships_remaining(player)
+    message_label = Label(frame4, text="{} ships left".format(num_ships))
+    message_label.grid(row=1, column=1)
+
+
+# which players ships to show
+player_show = StringVar()
+player_show.set('first')
+Radiobutton(frame4, text="Player1", variable=player_show, value='first').grid(row=0, column=0)
+Radiobutton(frame4, text="Player2", variable=player_show, value='second').grid(row=0, column=1)
+
+# button for showing player's remaining ships
+show = Button(frame4, text="Show ships", command=lambda: show_num_ships_remaining(player_show.get()))
+show.grid(row=1, column=0)
+
 # game board buttons
 
 # Player1 board
