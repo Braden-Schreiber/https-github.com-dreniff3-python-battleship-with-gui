@@ -65,7 +65,7 @@ submit.grid(row=2, column=3)
 
 def show_num_ships_remaining(player):
     num_ships = s.get_num_ships_remaining(player)
-    message_label = Label(frame4, text="{} ships".format(num_ships))
+    message_label = Label(frame4, text="{} remaining".format(num_ships))
     message_label.grid(row=1, column=1)
 
 
