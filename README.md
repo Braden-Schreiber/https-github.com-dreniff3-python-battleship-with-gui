@@ -24,6 +24,6 @@ After players have placed their ships, they take turns (starting with player 1) 
 
 To view the number of ships a player has remaining, choose the radiobutton for the player whose ships you wish to count and click the button labelled "Show ships". The number of ships will be printed inside that frame. 
 
-*(if you must peak at the location of your ships, while the program is running enter ```s.print_board("first")``` if you are player 1 or ```s.print_board("second")``` if you are player 2)
+*(if you must peak at the location of your ships, while the program is running enter ```s.print_board("first")``` if you are player 1 or ```s.print_board("second")``` if you are player 2 and a simple grid where ship positions are represented by X's will be printed in the terminal)
 
 ![battleship_example_sm](https://user-images.githubusercontent.com/85808475/159609537-6f5dcb39-4cab-4a69-9141-6e969bbd7a0c.gif)
