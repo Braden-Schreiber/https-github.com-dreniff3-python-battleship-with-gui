@@ -1,6 +1,8 @@
 # Author: Donald Reniff
 # Github username: dreniff3
 # Description: This module contains the classes necessary for instantiating a simulated game of Battleship.
+from tkinter import messagebox
+
 
 class Ship:
     """ Represents a ship.
@@ -128,6 +130,13 @@ class Player:
         """
         self._hits.append(position)
 
+    def remove_hits(self, position):
+        """
+        Removes a hit already used by ShipGame fire_torpedo method for decrementing a ship's length.
+        :param position: The tuple (x, y) position of a torpedo hit on an opponent ship.
+        """
+        self._hits.remove(position)
+
     def get_hits(self):
         """ Gets the list of hits. """
         return self._hits
@@ -193,6 +202,7 @@ class ShipGame:
             ship_name = ship_obj.get_name()
             ship_length = ship_obj.get_length()
         else:
+            messagebox.showerror("Battleship", "Choose a different ship.")
             return False
 
         # translate coordinates into (x, y) position
@@ -202,10 +212,12 @@ class ShipGame:
         # if the ship does not fit on board
         if x < 0 or y < 0 or x >= 10 or y >= 10:
             player_obj.remove_ship(ship_name)
+            messagebox.showerror("Battleship", "Choose a position on the board.")
             return False
         # if the ship would overlap with another ship
         if board[x][y] == 'X':
             player_obj.remove_ship(ship_name)
+            messagebox.showerror("Battleship", "Place the ship in an empty position.")
             return False
         board[x][y] = 'X'
         ship_obj.add_location((x, y))
@@ -216,10 +228,12 @@ class ShipGame:
                 temp_y = y + i
                 if x < 0 or temp_y < 0 or x >= 10 or temp_y >= 10:
                     player_obj.remove_ship(ship_name)
+                    messagebox.showerror("Battleship", "Choose a position on the board.")
                     return False
                 # if the ship would overlap with another ship
                 elif board[x][temp_y] == 'X':
                     player_obj.remove_ship(ship_name)
+                    messagebox.showerror("Battleship", "Place the ship in an empty position.")
                     return False
                 else:
                     board[x][temp_y] = 'X'
@@ -230,17 +244,19 @@ class ShipGame:
                 temp_x = x + i
                 if temp_x < 0 or y < 0 or temp_x >= 10 or y >= 10:
                     player_obj.remove_ship(ship_name)
+                    messagebox.showerror("Battleship", "Choose a position on the board.")
                     return False
                 # if the ship would overlap with another ship
                 elif board[temp_x][y] == 'X':
                     player_obj.remove_ship(ship_name)
+                    messagebox.showerror("Battleship", "Place the ship in an empty position.")
                     return False
                 else:
                     board[temp_x][y] = 'X'
                     ship_obj.add_location((temp_x, y))
             return True
 
-    def fire_torpedo(self, player, target_coordinates):
+    def fire_torpedo(self, player, target_coordinates, button=None):
         """
         Method for firing a torpedo at a specified target square. If it's not that player's turn, or if the game
         has already been won, it returns False. Otherwise, it records the move, updates whose turn it is, updates
@@ -248,6 +264,7 @@ class ShipGame:
 
         :param player: The player firing the torpedo, either 'first' or 'second'.
         :param target_coordinates: The coordinates of the target square, e.g. 'B7'.
+        :param button: The button associated with the target_coordinates to change.
         :returns Boolean: True if it is that player's turn and the game is not over, False otherwise.
         """
         # if the game has already been won
@@ -256,6 +273,7 @@ class ShipGame:
 
         # if it's not this player's turn
         if player != self._player_turn:
+            messagebox.showerror("Battleship", "Not your turn.")
             return False
 
         if player == "first":
@@ -265,27 +283,34 @@ class ShipGame:
             player_obj = self._player_2
             opponent_obj = self._player_1
 
-        print("torpedo firing!")
         letter = target_coordinates[0]
         x = self._letters_to_numbers[letter]
         # this slice allows for '10'
         y = int(target_coordinates[1:3]) - 1
         opponent_board = opponent_obj.get_board()
         if x < 0 or y < 0 or x >= 10 or y >= 10:
+            messagebox.showerror("Battleship", "Choose a position on the board.")
             return False
         if opponent_board[x][y] == 'X':
             if (x, y) not in player_obj.get_hits():
                 player_obj.add_hits((x, y))
-                print("hit!")
+                if button:
+                    button['text'] = "X"
+                    button.config(bg='red')
         else:
             player_obj.add_misses((x, y))
-            print("miss!")
+            if button:
+                button['text'] = "O"
+                button.config(bg='blue')
 
         opponent_ships = opponent_obj.get_ships().values()
         for ship in opponent_ships:
             for position in ship.get_location():
                 if position in player_obj.get_hits():
                     ship.change_length(-1)
+                    # remove recorded hits already used to decrement length of ship so they are not counted multiple
+                    # times as the loop iterates
+                    player_obj.remove_hits(position)
             if ship.get_length() <= 0:
                 ship.change_status("sunk")
 
@@ -301,9 +326,11 @@ class ShipGame:
                 if all(ship.get_status() == "sunk" for ship in opponent_ships):
                     if player_obj == self._player_1:
                         self._current_state = 'FIRST_WON'
+                        messagebox.showinfo('Battleship', 'Player1 won!')
                         return True
                     else:
                         self._current_state = 'SECOND_WON'
+                        messagebox.showinfo('Battleship', 'Player2 won!')
                         return True
 
     def get_current_state(self):
