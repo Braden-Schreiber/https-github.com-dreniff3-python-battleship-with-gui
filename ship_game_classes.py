@@ -202,6 +202,7 @@ class ShipGame:
             ship_name = ship_obj.get_name()
             ship_length = ship_obj.get_length()
         else:
+            messagebox.showerror("Battleship", "Choose a different ship.")
             return False
 
         # translate coordinates into (x, y) position
