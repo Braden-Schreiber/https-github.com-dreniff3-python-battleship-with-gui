@@ -1,4 +1,4 @@
-from ship_game_classes import Ship, Player, ShipGame
+from ship_game_classes import ShipGame
 from tkinter import *
 
 s = ShipGame()
