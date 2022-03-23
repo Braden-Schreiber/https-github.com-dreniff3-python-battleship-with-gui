@@ -255,7 +255,7 @@ class ShipGame:
                     ship_obj.add_location((temp_x, y))
             return True
 
-    def fire_torpedo(self, player, target_coordinates, button):
+    def fire_torpedo(self, player, target_coordinates, button=None):
         """
         Method for firing a torpedo at a specified target square. If it's not that player's turn, or if the game
         has already been won, it returns False. Otherwise, it records the move, updates whose turn it is, updates
@@ -293,12 +293,14 @@ class ShipGame:
         if opponent_board[x][y] == 'X':
             if (x, y) not in player_obj.get_hits():
                 player_obj.add_hits((x, y))
-                button['text'] = "X"
-                button.config(bg='red')
+                if button:
+                    button['text'] = "X"
+                    button.config(bg='red')
         else:
             player_obj.add_misses((x, y))
-            button['text'] = "O"
-            button.config(bg='blue')
+            if button:
+                button['text'] = "O"
+                button.config(bg='blue')
 
         opponent_ships = opponent_obj.get_ships().values()
         for ship in opponent_ships:
