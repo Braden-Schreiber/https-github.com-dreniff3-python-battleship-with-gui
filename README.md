@@ -1,5 +1,9 @@
 # Battleship (with GUI) in Python
 
+## Description
+
+A Python program that allows two people to play the game Battleship, originally created as a school project, meant to be played in the terminal. During a break between quarters, I implemented a simple GUI for the game using Tkinter. I used Tkinter because it is built into the Python standard library, and because displaying an array of clickable buttons to represent the grid Battleship is played on is fairly trivial with Tkinter.
+
 ## Requirements
 
 Python 3
