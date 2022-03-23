@@ -6,6 +6,7 @@ s = ShipGame()
 root = Tk()
 root.geometry("750x550")
 root.title('Battleship')
+root.iconbitmap('battleship-icon.ico')
 
 # frame for game board grids
 frame1 = LabelFrame(root, text="Player1", padx=10, pady=10)
