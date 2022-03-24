@@ -48,10 +48,6 @@ Radiobutton(frame3, text="Col", variable=orientation, value='C').grid(row=1, col
 
 def submit_click(player, ship, pos, orientation):
     s.place_ship(player, ship, pos.get(), orientation)
-    # if player == "first":
-    #     print(s._player_1.get_ships())
-    # else:
-    #     print(s._player_2.get_ships())
     pos.delete(0, END)
 
 
